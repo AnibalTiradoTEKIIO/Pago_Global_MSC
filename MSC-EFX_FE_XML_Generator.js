@@ -718,6 +718,7 @@ define(['N/record', 'N/render', 'N/search', 'N/runtime', './libsatcodes', './lib
                                     //currencysymbol: '',
                                     impuestoDR:'',
                                     objImpDR:'',
+                                    tasaOCuota:'',
                                 };
                                         // Verificar si idFacturaGlobal es un valor válido
                                         if (idFacturaGlobal) {
@@ -754,12 +755,19 @@ define(['N/record', 'N/render', 'N/search', 'N/runtime', './libsatcodes', './lib
                                                 if(totaltaxnumber>0 ) {
                                                     var objImpDR='02'
                                                     var impuestoDR='002'
+                                                var porcentajeCalculado=(totaltaxnumber/total)*100;
+                                                const porcentajeRedondeado=Math.round(porcentajeCalculado)
+                                                var  porcentajeDecimal=porcentajeRedondeado/100;
+                                                var tasaOCuota = porcentajeDecimal.toFixed(6);
                                                 }
                                                 else{
                                                     var objImpDR='01'
                                                     var impuestoDR='001'
+                                                    var tasaOCuota=0;
                                                 }
-                                                
+                                              
+
+                                                if(total) 
                                                 var data = {
                                                     uuid: result.getValue('custbody_mx_cfdi_uuid'),
                                                     serie: serie,
@@ -772,6 +780,7 @@ define(['N/record', 'N/render', 'N/search', 'N/runtime', './libsatcodes', './lib
                                                     //currencysymbol: result.getValue('currencysymbol'),
                                                     impuestoDR: impuestoDR,
                                                     objImpDR: objImpDR,
+                                                    tasaOCuota:tasaOCuota
 
                                                 };
 

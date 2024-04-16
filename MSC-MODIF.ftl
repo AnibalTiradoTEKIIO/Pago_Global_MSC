@@ -318,7 +318,7 @@
                             <pago20:DoctoRelacionado IdDocumento="${FGlobal.uuid}"  Folio="${FGlobal.folio}" Serie="${FGlobal.serie}" MonedaDR="${appliedTxnCurrency}"<#if currencyCode!=appliedTxnCurrency> EquivalenciaDR="${transaction.exchangerate?string["0.000000"]}"<#else> EquivalenciaDR="1"</#if> NumParcialidad="1" ImpSaldoAnt="${FGlobal.total}" ImpPagado="${FGlobal.total}" ImpSaldoInsoluto="0" ObjetoImpDR="${FGlobal.objImpDR}">
                                 <pago20:ImpuestosDR>
                                     <pago20:TrasladosDR>
-                                            <pago20:TrasladoDR BaseDR="${FGlobal.total}" ImpuestoDR="${FGlobal.impuestoDR}" TipoFactorDR="Tasa" TasaOCuotaDR="0.160000" ImporteDR="${FGlobal.totaltax}"/>
+                                            <pago20:TrasladoDR BaseDR="${FGlobal.total}" ImpuestoDR="${FGlobal.impuestoDR}" TipoFactorDR="Tasa" TasaOCuotaDR="FGlobal.tasaOCuota" ImporteDR="${FGlobal.totaltax}"/>
                                     </pago20:TrasladosDR>  
                                <#--  <#if ImpuestosPRetencion_base?has_content>
                             <pago20:RetencionesDR>
@@ -337,7 +337,7 @@
                               </pago20:DoctoRelacionado>
                               <pago20:ImpuestosP>
                                     <pago20:TrasladosP>
-                                            <pago20:TrasladoP BaseP="${FGlobal.total}" ImpuestoP="${FGlobal.impuestoDR}" TipoFactorP="Tasa" TasaOCuotaP="0.160000" ImporteP="${FGlobal.totaltax}"/>
+                                            <pago20:TrasladoP BaseP="${FGlobal.total}" ImpuestoP="${FGlobal.impuestoDR}" TipoFactorP="Tasa" TasaOCuotaP="${FGlobal.tasaOCuota}" ImporteP="${FGlobal.totaltax}"/>
                                     </pago20:TrasladosP> 
                               </pago20:ImpuestosP>
                 </pago20:Pago>
