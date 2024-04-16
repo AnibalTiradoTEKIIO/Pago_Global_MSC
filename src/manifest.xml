@@ -1,0 +1,25 @@
+<manifest projecttype="ACCOUNTCUSTOMIZATION">
+  <projectname>Pagos Globales</projectname>
+  <frameworkversion>1.0</frameworkversion>
+  <dependencies>
+    <features>
+      <feature required="false">MULTILANGUAGE</feature>
+      <feature required="true">SERVERSIDESCRIPTING</feature>
+      <feature required="true">ACCOUNTING</feature>
+      <feature required="false">CRM</feature>
+      <feature required="false">CUSTOMSEGMENTS</feature>
+      <feature required="false">EXTREMELIST</feature>
+      <feature required="false">MAILMERGE</feature>
+      <feature required="true">CUSTOMRECORDS</feature>
+      <feature required="true">MULTICURRENCY</feature>
+      <feature required="false">CREATESUITEBUNDLES</feature>
+    </features>
+    <objects>
+      <object>customrecord_psg_ei_template</object>
+      <object>customsale_efx_fe_factura_global</object>
+      <object>customrecord_mx_sat_cfdi_usage</object>
+      <object>customrecord_ei_sending_method</object>
+      <object>customrecord_mx_mapper_values</object>
+    </objects>
+  </dependencies>
+</manifest>

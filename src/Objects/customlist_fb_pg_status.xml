@@ -1,0 +1,28 @@
+<customlist scriptid="customlist_fb_pg_status">
+  <description></description>
+  <isinactive>F</isinactive>
+  <isordered>T</isordered>
+  <name>Estatus pago global</name>
+  <customvalues>
+    <customvalue scriptid="val_623300_t2220309_152">
+      <isinactive>F</isinactive>
+      <value>Pendiente</value>
+    </customvalue>
+    <customvalue scriptid="val_623301_t2220309_157">
+      <isinactive>F</isinactive>
+      <value>En proceso</value>
+    </customvalue>
+    <customvalue scriptid="val_623302_t2220309_896">
+      <isinactive>F</isinactive>
+      <value>Pago procesado</value>
+    </customvalue>
+    <customvalue scriptid="val_623303_t2220309_639">
+      <isinactive>F</isinactive>
+      <value>Error</value>
+    </customvalue>
+    <customvalue scriptid="val_623533_t2220309_775">
+      <isinactive>F</isinactive>
+      <value>Timbrado</value>
+    </customvalue>
+  </customvalues>
+</customlist>

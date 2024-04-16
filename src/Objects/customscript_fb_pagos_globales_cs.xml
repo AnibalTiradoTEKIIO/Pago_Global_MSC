@@ -1,0 +1,10 @@
+<clientscript scriptid="customscript_fb_pagos_globales_cs">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>Pagos Globales CS</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteScripts/Freebug/Pagos globales/app/uievents/Pagos_Globales_CS.js]</scriptfile>
+</clientscript>
