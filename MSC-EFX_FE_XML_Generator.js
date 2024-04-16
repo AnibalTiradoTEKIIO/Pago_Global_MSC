@@ -713,8 +713,11 @@ define(['N/record', 'N/render', 'N/search', 'N/runtime', './libsatcodes', './lib
                                     internalId: '',
                                     paymentTerm: '',
                                     exchangeRate: '',
+                                    totaltax:'',
                                     total: '',
-                                    currency: '',
+                                    //currencysymbol: '',
+                                    impuestoDR:'',
+                                    objImpDR:'',
                                 };
                                         // Verificar si idFacturaGlobal es un valor válido
                                         if (idFacturaGlobal) {
@@ -726,30 +729,50 @@ define(['N/record', 'N/render', 'N/search', 'N/runtime', './libsatcodes', './lib
                                                 ],
                                                 columns: [
                                                     'custbody_mx_cfdi_uuid',
-                                                    'custbody_mx_cfdi_serie',
-                                                    'custbody_mx_cfdi_folio',
+                                                    'tranid',
                                                     'internalid',
                                                     'custbody_mx_txn_sat_payment_term',
                                                     'exchangerate',
                                                     'total',
-                                                    'currency',
+                                                    //'currencysymbol',
+                                                    'custbody_efx_fe_gbl_totaltax',
                                                 ],
                                             });
 
                                             var searchResults = FacturaGlobalSearch.run();
                                             var result = searchResults.getRange(0, 1)[0]; // Obtener el primer resultado
-
+                                            
                                             if (result) {
                                                 // Obtener los datos de la factura global
+                                                var totalabs = Math.abs(parseFloat(result.getValue('total')));
+                                                var total= totalabs.toFixed(2);
+                                                var totaltax=result.getValue('custbody_efx_fe_gbl_totaltax');
+                                                var totaltaxnumber=parseFloat(totaltax);
+                                                var tranid=result.getValue('tranid').split('-');
+                                                var serie=tranid[0];
+                                                var folio=tranid[1];
+                                                if(totaltaxnumber>0 ) {
+                                                    var objImpDR='02'
+                                                    var impuestoDR='002'
+                                                }
+                                                else{
+                                                    var objImpDR='01'
+                                                    var impuestoDR='001'
+                                                }
+                                                
                                                 var data = {
                                                     uuid: result.getValue('custbody_mx_cfdi_uuid'),
-                                                    serie: result.getValue('custbody_mx_cfdi_serie'),
-                                                    folio: result.getValue('custbody_mx_cfdi_folio'),
+                                                    serie: serie,
+                                                    folio: folio,
                                                     internalId: result.getValue('internalid'),
                                                     paymentTerm: result.getValue('custbody_mx_txn_sat_payment_term'),
                                                     exchangeRate: result.getValue('exchangerate'),
-                                                    total: result.getValue('total'),
-                                                    currency: result.getValue('currency'),
+                                                    totaltax:totaltax,
+                                                    total: total,
+                                                    //currencysymbol: result.getValue('currencysymbol'),
+                                                    impuestoDR: impuestoDR,
+                                                    objImpDR: objImpDR,
+
                                                 };
 
                                                 // Hacer algo con los datos obtenidos

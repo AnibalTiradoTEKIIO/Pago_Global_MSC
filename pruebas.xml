@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:cfdi="http://www.sat.gob.mx/cfd/4"
+    xmlns:pago20="http://www.sat.gob.mx/Pagos20" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd http://www.sat.gob.mx/Pagos20 http://www.sat.gob.mx/sitio_internet/cfd/Pagos/Pagos20.xsd" Fecha="2024-04-15T23:31:38" Folio="000905" Serie="PAGCAR" LugarExpedicion="76100" Moneda="XXX" SubTotal="0" TipoDeComprobante="P" Total="0" Version="4.0" Exportacion="01">
+    <cfdi:Emisor Nombre="MEDICA SANTA CARMEN" RegimenFiscal="601" Rfc="MSC1103018G8" />
+    <cfdi:Receptor Nombre="MARITZA MONROY ZAMORA" Rfc="MOZM881206MC3" DomicilioFiscalReceptor="09810" RegimenFiscalReceptor="605" UsoCFDI="" />
+    <cfdi:Conceptos>
+        <cfdi:Concepto Cantidad="1" ClaveProdServ="84111506" ClaveUnidad="ACT" Descripcion="Pago" Importe="0" ValorUnitario="0" ObjetoImp="01" />
+    </cfdi:Conceptos>
+    <cfdi:Complemento>
+        <pago20:Pagos Version="2.0">
+            <pago20:Totales MontoTotalPagos="2.32" TotalTrasladosBaseIVA16="2.00" TotalTrasladosImpuestoIVA16="0.32" />
+            <pago20:Pago FechaPago="2024-04-15T21:57:48" FormaDePagoP="03" MonedaP="MXN" TipoCambioP="1" Monto="2.32">
+                <pago20:DoctoRelacionado IdDocumento="e796a1c6-728f-46d9-9b53-d9591070de40" Folio="00763" Serie="FCNS" MonedaDR="MXN" EquivalenciaDR="1.00" NumParcialidad="1" ImpSaldoAnt="2.00" ImpPagado="2.00" ImpSaldoInsoluto="0" ObjetoImpDR="02">
+                    <pago20:ImpuestosDR>
+                        <pago20:TrasladosDR>
+                            <pago20:TrasladoDR BaseDR="2.00" ImpuestoDR="002" TipoFactorDR="Tasa" TasaOCuotaDR="0.160000" ImporteDR="0.32"/>
+                        </pago20:TrasladosDR>
+                    </pago20:ImpuestosDR>
+                </pago20:DoctoRelacionado>
+                <pago20:ImpuestosP>
+                    <pago20:TrasladosP>
+                        <pago20:TrasladoP BaseP="2.00" ImpuestoP="002" TipoFactorP="Tasa" TasaOCuotaP="0.160000" ImporteP="0.32"/>
+                    </pago20:TrasladosP>
+                </pago20:ImpuestosP>
+            </pago20:Pago>
+        </pago20:Pagos>
+    </cfdi:Complemento>
+</cfdi:Comprobante>
