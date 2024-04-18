@@ -84,13 +84,13 @@ define([], () => {
                     type: 'TEXT',
                     container: this.FORMS.PAGOS_GLOBALES.FIELD_GROUPS.MAIN.id
                 },
-                METODO_PAGO: {
-                    id: 'custpage_fld_metodo_pago',
-                    alias: 'metodoPago',
-                    label: 'Método de Pago',
-                    type: 'SELECT',
-                    container: this.FORMS.PAGOS_GLOBALES.FIELD_GROUPS.GLOBAL_PAYMENT.id
-                },
+                // METODO_PAGO: {
+                //     id: 'custpage_fld_metodo_pago',
+                //     alias: 'metodoPago',
+                //     label: 'Método de Pago',
+                //     type: 'SELECT',
+                //     container: this.FORMS.PAGOS_GLOBALES.FIELD_GROUPS.GLOBAL_PAYMENT.id
+                // },
                 USO_CFDI: {
                     id: 'custpage_fld_uso_cfdi',
                     alias: 'usoCdfi',

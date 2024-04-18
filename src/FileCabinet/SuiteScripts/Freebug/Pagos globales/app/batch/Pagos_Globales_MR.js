@@ -328,7 +328,22 @@ define(['N/record', 'N/search', 'N/runtime', 'N/format', 'N/url', 'N/https', 'Su
 
             return invoices;
         };
-
+        const changeStatusOfGlobalInvoice= (facturaConsolidada)=>{
+            try{
+                const globalInvoice = record.load({
+                    type: CONFIG.TRANSACTIONS.FACTURA_GLOBAL.id, 
+                    id: facturaConsolidada,
+                    isDynamic: true, 
+                });
+                globalInvoice.setValue({fieldId:'custbody_efx_fe_gbl_pagado',value:true});
+                globalInvoice.setValue({fieldId:'transtatus',value:'B'});
+                globalInvoice.save({ enableSourcing: true, ignoreMandatoryFields: true });
+                log.audit('Changed tranid of global invoice', { facturaConsolidada});
+            } catch (error) {
+                log.error('Error changing tranid of global invoice', { facturaConsolidada,error });
+                throw error;
+            }
+         };
         const reduce = (reduceContext) => {
             try {
 
@@ -353,7 +368,7 @@ define(['N/record', 'N/search', 'N/runtime', 'N/format', 'N/url', 'N/https', 'Su
                         location: INVOICES.filter(invoice => invoice._location.value)[0]._location.value,
                         accountId: PAGO_GLOBAL_DATA.cuenta.value,
                         currencyId: PAGO_GLOBAL_DATA.moneda.value,
-                        paymentMethodId: PAGO_GLOBAL_DATA.metodoPago.value,
+                        paymentMethodId: PAGO_GLOBAL_DATA.formaPago.value,
                         formaPago: PAGO_GLOBAL_DATA.formaPago.value,
                         cfdiUsageId: PAGO_GLOBAL_DATA.usoCfdi.value,
                         // cfdiUsageId: PAGO_GLOBAL_DATA.usoCfdi.value,
@@ -455,6 +470,7 @@ define(['N/record', 'N/search', 'N/runtime', 'N/format', 'N/url', 'N/https', 'Su
                     }
                 }
 
+                changeStatusOfGlobalInvoice(PAGO_GLOBAL_DATA.facturaConsolidada.value)
                 updatePagoGlobalRecord({ pagoGlobalUpdates });
             } catch (error) {
                 log.error('reduce : error:', error);

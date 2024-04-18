@@ -401,36 +401,37 @@ define(['N/url', 'N/record', 'N/search', 'N/ui/message', 'N/currentRecord', 'Sui
                 FORM_DATA = getFormData({ formFields: Object.values(BODY_FIELDS) });
 
                 let SUBLIST_VALUES = getSublistValues();
+              CURRENT_RECORD.setValue({ fieldId: BODY_FIELDS.IMPORTE_PAGAR.id, value:SUBLIST_VALUES.reduce((total, invoiceRow) => total + invoiceRow.custpage_column_invc_no_due_amount, 0)  });
 
-                if (0 === SUBLIST_VALUES.reduce((total, invoiceRow) => total + invoiceRow.custpage_column_invc_total_payment, 0)
-                    || !(0 < Number(FORM_DATA.importePagar.value))) {
+                // if (0 === SUBLIST_VALUES.reduce((total, invoiceRow) => total + invoiceRow.custpage_column_invc_total_payment, 0)
+                //     || !(0 < Number(FORM_DATA.importePagar.value))) {
 
-                    showMessage({
-                        title: TEXTS.WARNING, text: TEXTS.INVALID_PAYMENT_AMOUNT,
-                        type: message.Type.WARNING, duration: 4000
-                    });
+                //     showMessage({
+                //         title: TEXTS.WARNING, text: TEXTS.INVALID_PAYMENT_AMOUNT,
+                //         type: message.Type.WARNING, duration: 4000
+                //     });
 
-                    if (!(0 < Number(FORM_DATA.importePagar.value))) {
-                        cleanForm();
-                        cleanSublist();
-                        updateSublits();
-                    }
+                //     if (!(0 < Number(FORM_DATA.importePagar.value))) {
+                //         cleanForm();
+                //         cleanSublist();
+                //         updateSublits();
+                //     }
 
-                    return false;
-                }
+                //     return false;
+                // }
 
-                console.log(FORM_DATA.importePagar.value + ' !== ' + SUBLIST_VALUES.reduce((total, invoiceRow) => total + invoiceRow.custpage_column_invc_no_due_amount, 0))
+                // console.log(FORM_DATA.importePagar.value + ' !== ' + SUBLIST_VALUES.reduce((total, invoiceRow) => total + invoiceRow.custpage_column_invc_no_due_amount, 0))
 
-                if (FORM_DATA.importePagar.value > FORM_DATA.importeTotalAplicar.value
-                    || FORM_DATA.importePagar.value !== SUBLIST_VALUES.reduce((total, invoiceRow) => total + invoiceRow.custpage_column_invc_no_due_amount, 0)) {
+                // if (FORM_DATA.importePagar.value > FORM_DATA.importeTotalAplicar.value
+                //     || FORM_DATA.importePagar.value !== SUBLIST_VALUES.reduce((total, invoiceRow) => total + invoiceRow.custpage_column_invc_no_due_amount, 0)) {
 
-                    showMessage({
-                        title: TEXTS.WARNING, text: TEXTS.INVALID_PAYMENT_AMOUNT_ON_SAVE,
-                        type: message.Type.WARNING, duration: 10000
-                    });
+                //     showMessage({
+                //         title: TEXTS.WARNING, text: TEXTS.INVALID_PAYMENT_AMOUNT_ON_SAVE,
+                //         type: message.Type.WARNING, duration: 10000
+                //     });
 
-                    return false;
-                }
+                //     return false;
+                // }
 
                 return true;
             } catch (error) {

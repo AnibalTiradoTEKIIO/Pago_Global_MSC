@@ -337,6 +337,7 @@ define(['N/record', 'N/https', 'N/ui/serverWidget', 'N/format', 'N/task', 'N/red
                         .isMandatory = true;
 
                     let fldImportePagar = GLB_FORM.addField(BODY_FIELDS.IMPORTE_PAGAR)
+                        .updateDisplayType({ displayType: serverWidget.FieldDisplayType.DISABLED })
                         .defaultValue = 0.00;
 
                     fldImportePagar.isMandatory = true;
@@ -353,10 +354,10 @@ define(['N/record', 'N/https', 'N/ui/serverWidget', 'N/format', 'N/task', 'N/red
                         .updateDisplayType({ displayType: serverWidget.FieldDisplayType.DISABLED })
                         .defaultValue = 1;
 
-                    GLB_FORM.addField({ ...BODY_FIELDS.METODO_PAGO, source: 'paymentmethod' })
-                        .isMandatory = true;
+                    // GLB_FORM.addField({ ...BODY_FIELDS.METODO_PAGO, source: 'paymentmethod' })
+                    //     .isMandatory = true;
 
-                    GLB_FORM.addField({ ...BODY_FIELDS.FORMA_PAGO, source: 'customrecord_mx_mapper_values' })
+                    GLB_FORM.addField({ ...BODY_FIELDS.FORMA_PAGO, source: 'customrecord_efx_fe_formapago' })
                         .isMandatory = true;
 
                     GLB_FORM.addField({ ...BODY_FIELDS.USO_CFDI, source: 'customrecord_mx_sat_cfdi_usage' })
