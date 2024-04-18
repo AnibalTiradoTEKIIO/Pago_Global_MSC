@@ -401,7 +401,7 @@ define(['N/url', 'N/record', 'N/search', 'N/ui/message', 'N/currentRecord', 'Sui
                 FORM_DATA = getFormData({ formFields: Object.values(BODY_FIELDS) });
 
                 let SUBLIST_VALUES = getSublistValues();
-              CURRENT_RECORD.setValue({ fieldId: BODY_FIELDS.IMPORTE_PAGAR.id, value:SUBLIST_VALUES.reduce((total, invoiceRow) => total + invoiceRow.custpage_column_invc_no_due_amount, 0)  });
+                CURRENT_RECORD.setValue({ fieldId: BODY_FIELDS.IMPORTE_PAGAR.id, value:SUBLIST_VALUES.reduce((total, invoiceRow) => total + invoiceRow.custpage_column_invc_no_due_amount, 0)  });
 
                 // if (0 === SUBLIST_VALUES.reduce((total, invoiceRow) => total + invoiceRow.custpage_column_invc_total_payment, 0)
                 //     || !(0 < Number(FORM_DATA.importePagar.value))) {
