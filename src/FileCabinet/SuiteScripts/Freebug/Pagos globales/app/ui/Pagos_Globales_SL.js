@@ -347,7 +347,7 @@ define(['N/record', 'N/https', 'N/ui/serverWidget', 'N/format', 'N/task', 'N/red
                         .defaultValue = 0.00;
 
                     GLB_FORM.addField(BODY_FIELDS.IMPORTE_TOTAL_APLICAR)
-                        .updateDisplayType({ displayType: serverWidget.FieldDisplayType.DISABLED })
+                        .updateDisplayType({ displayType: serverWidget.FieldDisplayType.HIDDEN })
                         .defaultValue = 0.00;
 
                     GLB_FORM.addField(BODY_FIELDS.PARCIALIDAD)
